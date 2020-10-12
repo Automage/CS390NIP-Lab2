@@ -92,16 +92,19 @@ def buildTFConvNet(x, y, eps=10, dropout=True, dropRate=0.2):
     # Pooling layer
     model.add(keras.layers.MaxPooling2D(pool_size=(2, 2)))
     model.add(keras.layers.Flatten())
-
-    model.add(keras.layers.Dense(128, activation="relu"))
-    model.add(keras.layers.Dense(NUM_CLASSES, activation="softmax"))
+    if dropout:
+        model.add(keras.layers.Dropout(dropRate))
+        model.add(keras.layers.Dense(128, activation="relu"))
+        model.add(keras.layers.Dense(NUM_CLASSES, activation="softmax"))
+    else:
+        model.add(keras.layers.Dense(128, activation="relu"))
+        model.add(keras.layers.Dense(NUM_CLASSES, activation="softmax"))
 
     # Train
     model.compile(optimizer=opt, loss=lossType)
     model.fit(x, y, epochs=eps)
 
     return model
-
 
 # =========================<Pipeline Functions>==================================
 
