@@ -95,6 +95,7 @@ def buildTFConvNet(x, y, eps=10, dropout=True, dropRate=0.2):
     if dropout:
         model.add(keras.layers.Dropout(dropRate))
         model.add(keras.layers.Dense(128, activation="relu"))
+        model.add(keras.layers.Dropout(dropRate))
         model.add(keras.layers.Dense(NUM_CLASSES, activation="softmax"))
     else:
         model.add(keras.layers.Dense(128, activation="relu"))
