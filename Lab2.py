@@ -103,7 +103,7 @@ def buildTFConvNet(x, y, eps=10, dropout=True, dropRate=0.2):
 
     # Train
     model.compile(optimizer=opt, loss=lossType)
-    model.fit(x, y, epochs=eps)
+    model.fit(x, y, epochs=eps, batch_size=64)
 
     return model
 
