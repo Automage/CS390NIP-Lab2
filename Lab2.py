@@ -20,9 +20,9 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 ALGORITHM = "tf_net"
 # ALGORITHM = "tf_conv"
 
-DATASET = "mnist_d"
+# DATASET = "mnist_d"
 # DATASET = "mnist_f"
-# DATASET = "cifar_10"
+DATASET = "cifar_10"
 #DATASET = "cifar_100_f"
 #DATASET = "cifar_100_c"
 
@@ -43,19 +43,19 @@ elif DATASET == "cifar_10":
     IH = 32
     IW = 32
     IZ = 3
-    IS = 1024
+    IS = 3072
 elif DATASET == "cifar_100_f":
     NUM_CLASSES = 100
     IH = 32
     IW = 32
     IZ = 3
-    IS = 1024
+    IS = 3072
 elif DATASET == "cifar_100_c":
     NUM_CLASSES = 20
     IH = 32
     IW = 32
     IZ = 3
-    IS = 1024
+    IS = 3072
 
 
 # =========================<Classifier Functions>================================
