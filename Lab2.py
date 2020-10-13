@@ -88,7 +88,7 @@ def buildTFConvNet(x, y, eps=10, dropout=True, dropRate=0.2):
     model.add(keras.layers.Conv2D(32, kernel_size=(3, 3),
                                   activation="relu", input_shape=in_shape))
     model.add(keras.layers.Conv2D(64, kernel_size=(3, 3), activation="relu"))
-    model.add(keras.layers.Conv2D(64, kernel_size=(3, 3), activation="relu"))
+    model.add(keras.layers.Conv2D(128, kernel_size=(3, 3), activation="relu"))
 
     # Pooling layer
     model.add(keras.layers.MaxPooling2D(pool_size=(2, 2)))
