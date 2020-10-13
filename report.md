@@ -13,6 +13,26 @@ http://d2l.ai/chapter_convolutional-modern/vgg.html
 
 https://machinelearningmastery.com/how-to-develop-a-cnn-from-scratch-for-cifar-10-photo-classification/
 
+## Parts completed
+Neural net models
+- Standard ANN
+- CNN
+
+Accuracy
+- Get an MNIST digit accuracy of 99% or higher.
+- Get an MNIST fashion accuracy of 92% or higher.
+- Get a cifar 10 accuracy of 70% or higher.
+- Get a cifar 100 course accuracy of 50% or higher.
+- Get a cifar 100 fine accuracy of 35% or higher.
+
+Pipeline & misc.
+- Code the pipeline to be able to use cifar-10
+- Code the pipeline to be able to use cifar-100 fine
+- Code the pipeline to be able to use cifar-100 course
+- Use matplotlib to create a bar graph showing your accuracy with the standard ANN for each dataset. Save this graph as an image and name the file ANN_Accuracy_Plot.pdf.
+- Use matplotlib to create a bar graph showing your accuracy with the standard CNN for each dataset. Save this graph as an image and name the file CNN_Accuracy_Plot.pdf.
+
+
 ## Questions
 ### How is a CNN superior to standard ANNs for image processing?
 CNNs are superior to standard ANNs due to their ability to extract data more relevant to that of an image. By considering the relationship between each pixel's neighbors (via filters and convolutions), the data provided to the fully connected layer is more meaningful compared to a one dimensional vector of pixels, leading networks to 'learn' better.
