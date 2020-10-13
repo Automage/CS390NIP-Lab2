@@ -38,3 +38,23 @@ The final optimization made was to update the architecture of the network. Speci
 - Two fully connected layers with 10 and 512 nodes, respectively.s
 - ReLu activation was used in the convolution and fully connected layers, expect the final dense layer which used softmax.
 
+## Outputs
+
+### ANN
+
+#### MINST-d
+F - scores:  [0.95760599 0.97762176 0.93020986 0.9261811  0.93138244 0.9224537
+ 0.94736842 0.93473896 0.90072389 0.90732654]
+
+#### MINST-f
+#### Cifar-10
+#### Cifar-100-c
+#### Cifar-100-f
+
+### CNN
+
+#### MINST-d
+#### MINST-f
+#### Cifar-10
+#### Cifar-100-c
+#### Cifar-100-f

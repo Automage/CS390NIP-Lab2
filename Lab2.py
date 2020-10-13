@@ -6,6 +6,7 @@ from tensorflow import keras
 from tensorflow.keras.utils import to_categorical
 import random
 
+np.set_printoptions(precision=3, threshold=1500, suppress=True)
 
 random.seed(1618)
 np.random.seed(1618)
