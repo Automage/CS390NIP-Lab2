@@ -78,11 +78,11 @@ def buildTFNeuralNet(x, y, eps=6):
     return model
 
 
-def buildTFConvNet(x, y, eps=10, dropout=True, dropRate=0.1):
+def buildTFConvNet(x, y, eps=10, dropout=True, dropRate=0.2):
     model = keras.Sequential()
     in_shape = (IH, IW, IZ)
     lossType = keras.losses.categorical_crossentropy
-    opt = tf.optimizers.Adam()
+    opt = tf.optimizers.Adam(learning_rate=0.0001)
 
     # Convolution Layers
     model.add(keras.layers.Conv2D(32, kernel_size=(3, 3),
