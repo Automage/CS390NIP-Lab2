@@ -16,12 +16,12 @@ tf.random.set_seed(1618)
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # ALGORITHM = "guesser"
-# ALGORITHM = "tf_net"
-ALGORITHM = "tf_conv"
+ALGORITHM = "tf_net"
+# ALGORITHM = "tf_conv"
 
-# DATASET = "mnist_d"
+DATASET = "mnist_d"
 # DATASET = "mnist_f"
-DATASET = "cifar_10"
+# DATASET = "cifar_10"
 #DATASET = "cifar_100_f"
 #DATASET = "cifar_100_c"
 
@@ -217,12 +217,32 @@ def runModel(data, model):
 def evalResults(data, preds):
     xTest, yTest = data
     acc = 0
+    # + 1 for total column/row
+    conf = np.zeros((NUM_CLASSES + 1, NUM_CLASSES + 1))
+
     for i in range(preds.shape[0]):
         if np.array_equal(preds[i], yTest[i]):
             acc = acc + 1
+
+        predIndex = np.argmax(preds[i])
+        ansIndex = np.argmax(yTest[i])
+        conf[predIndex][ansIndex] += 1
+
+    conf[NUM_CLASSES] = conf.sum(axis=0)
+    conf[:, NUM_CLASSES] = conf.sum(axis=1)
+
+    fscores = np.zeros(NUM_CLASSES)
+    for i in range(NUM_CLASSES):
+        precision = conf[i][i] / conf[i][NUM_CLASSES]
+        recall = conf[i][i] / conf[NUM_CLASSES][i]
+        fscores[i] = 2 * ((precision * recall) / (precision + recall))
+
     accuracy = acc / preds.shape[0]
     print("Classifier algorithm: %s" % ALGORITHM)
     print("Classifier accuracy: %f%%" % (accuracy * 100))
+    print("F - scores: ", fscores)
+    print('Confusion Matrix:')
+    print(conf)
     print()
 
 
